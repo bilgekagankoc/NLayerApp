@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace REPOSITORY.Repositories
 {
-    public abstract class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         protected readonly AppDbContext _context;
         private readonly DbSet<T> _dbSet;
@@ -35,7 +35,7 @@ namespace REPOSITORY.Repositories
             return await _dbSet.AnyAsync(expression);
         }
 
-        public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)
+        public IQueryable<T> GetAll()
         {
             return _dbSet.AsNoTracking().AsQueryable(); // efcore çektiği dataları memoriye almasın diye as no tracking yapıyoruz
         }
