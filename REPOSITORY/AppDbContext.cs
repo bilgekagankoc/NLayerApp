@@ -1,4 +1,4 @@
-﻿using CORE;
+﻿using CORE.Models;
 using Microsoft.EntityFrameworkCore;
 using REPOSITORY.Configurations;
 using System;

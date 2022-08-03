@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using REPOSITORY;
 using REPOSITORY.Repositories;
 using REPOSITORY.UnitOfWorks;
+using SERVICE.Mapping;
+using SERVICE.Services;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,7 +20,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
-//builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
+builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
+
+//automapper ekleme
+builder.Services.AddAutoMapper(typeof(MapProfile));
+
 //
 builder.Services.AddDbContext<AppDbContext>(x =>
 {
