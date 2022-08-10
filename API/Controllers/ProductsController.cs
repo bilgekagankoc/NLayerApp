@@ -7,16 +7,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class ProductsController : CustomBaseController
     {
         private readonly IMapper _mapper;
 
         private readonly IService<Product> _service;
 
-        public ProductsController(IMapper mapper, IService<Product> service)
+        public ProductsController(IService<Product> service, IMapper mapper)
         {
-            _mapper = mapper;
             _service = service;
+            _mapper = mapper;
         }
         [HttpGet]
         public async Task<IActionResult> All()

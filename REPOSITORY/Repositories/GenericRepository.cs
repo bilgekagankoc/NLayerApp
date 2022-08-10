@@ -14,7 +14,7 @@ namespace REPOSITORY.Repositories
         protected readonly AppDbContext _context;
         private readonly DbSet<T> _dbSet;
 
-        protected GenericRepository(AppDbContext context)
+        public GenericRepository(AppDbContext context)
         {
             _context = context;
             _dbSet = _context.Set<T>();
