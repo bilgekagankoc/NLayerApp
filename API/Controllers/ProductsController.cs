@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CORE.DTOs;
 using CORE.Models;
+using CORE.Repositories;
 using CORE.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,11 +16,20 @@ namespace API.Controllers
 
         private readonly IService<Product> _service;
 
-        public ProductsController(IService<Product> service, IMapper mapper)
+        private readonly IProductService _productService;
+
+        public ProductsController(IService<Product> service, IMapper mapper, IProductService productService)
         {
             _service = service;
             _mapper = mapper;
+            _productService = productService;
         }
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetProductWithCategory()
+        {
+            return CreateActionResult(await _productService.GetProductWithCategory());
+        }
+
         [HttpGet]
         public async Task<IActionResult> All()
         {
