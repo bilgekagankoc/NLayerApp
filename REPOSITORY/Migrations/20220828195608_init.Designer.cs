@@ -12,8 +12,8 @@ using REPOSITORY;
 namespace REPOSITORY.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220728145122_initial")]
-    partial class initial
+    [Migration("20220828195608_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace REPOSITORY.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("CORE.Category", b =>
+            modelBuilder.Entity("CORE.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -68,7 +68,7 @@ namespace REPOSITORY.Migrations
                         });
                 });
 
-            modelBuilder.Entity("CORE.Product", b =>
+            modelBuilder.Entity("CORE.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -107,7 +107,7 @@ namespace REPOSITORY.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2022, 7, 28, 17, 51, 22, 575, DateTimeKind.Local).AddTicks(5099),
+                            CreatedDate = new DateTime(2022, 8, 28, 22, 56, 7, 182, DateTimeKind.Local).AddTicks(4602),
                             Name = "Kalem1",
                             Price = 100m,
                             Stock = 20
@@ -116,7 +116,7 @@ namespace REPOSITORY.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2022, 7, 28, 17, 51, 22, 575, DateTimeKind.Local).AddTicks(5111),
+                            CreatedDate = new DateTime(2022, 8, 28, 22, 56, 7, 182, DateTimeKind.Local).AddTicks(4621),
                             Name = "Kalem2",
                             Price = 200m,
                             Stock = 300
@@ -125,7 +125,7 @@ namespace REPOSITORY.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2022, 7, 28, 17, 51, 22, 575, DateTimeKind.Local).AddTicks(5113),
+                            CreatedDate = new DateTime(2022, 8, 28, 22, 56, 7, 182, DateTimeKind.Local).AddTicks(4624),
                             Name = "Kalem3",
                             Price = 500m,
                             Stock = 60
@@ -134,7 +134,7 @@ namespace REPOSITORY.Migrations
                         {
                             Id = 4,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2022, 7, 28, 17, 51, 22, 575, DateTimeKind.Local).AddTicks(5114),
+                            CreatedDate = new DateTime(2022, 8, 28, 22, 56, 7, 182, DateTimeKind.Local).AddTicks(4626),
                             Name = "Kitap1",
                             Price = 100m,
                             Stock = 20
@@ -143,14 +143,14 @@ namespace REPOSITORY.Migrations
                         {
                             Id = 5,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2022, 7, 28, 17, 51, 22, 575, DateTimeKind.Local).AddTicks(5115),
+                            CreatedDate = new DateTime(2022, 8, 28, 22, 56, 7, 182, DateTimeKind.Local).AddTicks(4628),
                             Name = "Kitap2",
                             Price = 140m,
                             Stock = 10
                         });
                 });
 
-            modelBuilder.Entity("CORE.ProductFeature", b =>
+            modelBuilder.Entity("CORE.Models.ProductFeature", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -196,9 +196,9 @@ namespace REPOSITORY.Migrations
                         });
                 });
 
-            modelBuilder.Entity("CORE.Product", b =>
+            modelBuilder.Entity("CORE.Models.Product", b =>
                 {
-                    b.HasOne("CORE.Category", "Category")
+                    b.HasOne("CORE.Models.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -207,23 +207,23 @@ namespace REPOSITORY.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("CORE.ProductFeature", b =>
+            modelBuilder.Entity("CORE.Models.ProductFeature", b =>
                 {
-                    b.HasOne("CORE.Product", "Product")
+                    b.HasOne("CORE.Models.Product", "Product")
                         .WithOne("ProductFeature")
-                        .HasForeignKey("CORE.ProductFeature", "ProductId")
+                        .HasForeignKey("CORE.Models.ProductFeature", "ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("CORE.Category", b =>
+            modelBuilder.Entity("CORE.Models.Category", b =>
                 {
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("CORE.Product", b =>
+            modelBuilder.Entity("CORE.Models.Product", b =>
                 {
                     b.Navigation("ProductFeature");
                 });

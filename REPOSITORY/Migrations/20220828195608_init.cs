@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace REPOSITORY.Migrations
 {
-    public partial class initial : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -90,11 +90,11 @@ namespace REPOSITORY.Migrations
                 columns: new[] { "Id", "CategoryId", "CreatedDate", "Name", "Price", "Stock", "UpdatedDate" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2022, 7, 28, 17, 51, 22, 575, DateTimeKind.Local).AddTicks(5099), "Kalem1", 100m, 20, null },
-                    { 2, 1, new DateTime(2022, 7, 28, 17, 51, 22, 575, DateTimeKind.Local).AddTicks(5111), "Kalem2", 200m, 300, null },
-                    { 3, 1, new DateTime(2022, 7, 28, 17, 51, 22, 575, DateTimeKind.Local).AddTicks(5113), "Kalem3", 500m, 60, null },
-                    { 4, 2, new DateTime(2022, 7, 28, 17, 51, 22, 575, DateTimeKind.Local).AddTicks(5114), "Kitap1", 100m, 20, null },
-                    { 5, 2, new DateTime(2022, 7, 28, 17, 51, 22, 575, DateTimeKind.Local).AddTicks(5115), "Kitap2", 140m, 10, null }
+                    { 1, 1, new DateTime(2022, 8, 28, 22, 56, 7, 182, DateTimeKind.Local).AddTicks(4602), "Kalem1", 100m, 20, null },
+                    { 2, 1, new DateTime(2022, 8, 28, 22, 56, 7, 182, DateTimeKind.Local).AddTicks(4621), "Kalem2", 200m, 300, null },
+                    { 3, 1, new DateTime(2022, 8, 28, 22, 56, 7, 182, DateTimeKind.Local).AddTicks(4624), "Kalem3", 500m, 60, null },
+                    { 4, 2, new DateTime(2022, 8, 28, 22, 56, 7, 182, DateTimeKind.Local).AddTicks(4626), "Kitap1", 100m, 20, null },
+                    { 5, 2, new DateTime(2022, 8, 28, 22, 56, 7, 182, DateTimeKind.Local).AddTicks(4628), "Kitap2", 140m, 10, null }
                 });
 
             migrationBuilder.InsertData(
