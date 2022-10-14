@@ -12,7 +12,7 @@ using REPOSITORY;
 namespace REPOSITORY.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220828195608_init")]
+    [Migration("20221010092957_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -107,7 +107,7 @@ namespace REPOSITORY.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2022, 8, 28, 22, 56, 7, 182, DateTimeKind.Local).AddTicks(4602),
+                            CreatedDate = new DateTime(2022, 10, 10, 12, 29, 57, 657, DateTimeKind.Local).AddTicks(9578),
                             Name = "Kalem1",
                             Price = 100m,
                             Stock = 20
@@ -116,7 +116,7 @@ namespace REPOSITORY.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2022, 8, 28, 22, 56, 7, 182, DateTimeKind.Local).AddTicks(4621),
+                            CreatedDate = new DateTime(2022, 10, 10, 12, 29, 57, 657, DateTimeKind.Local).AddTicks(9589),
                             Name = "Kalem2",
                             Price = 200m,
                             Stock = 300
@@ -125,7 +125,7 @@ namespace REPOSITORY.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2022, 8, 28, 22, 56, 7, 182, DateTimeKind.Local).AddTicks(4624),
+                            CreatedDate = new DateTime(2022, 10, 10, 12, 29, 57, 657, DateTimeKind.Local).AddTicks(9590),
                             Name = "Kalem3",
                             Price = 500m,
                             Stock = 60
@@ -134,7 +134,7 @@ namespace REPOSITORY.Migrations
                         {
                             Id = 4,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2022, 8, 28, 22, 56, 7, 182, DateTimeKind.Local).AddTicks(4626),
+                            CreatedDate = new DateTime(2022, 10, 10, 12, 29, 57, 657, DateTimeKind.Local).AddTicks(9591),
                             Name = "Kitap1",
                             Price = 100m,
                             Stock = 20
@@ -143,7 +143,7 @@ namespace REPOSITORY.Migrations
                         {
                             Id = 5,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2022, 8, 28, 22, 56, 7, 182, DateTimeKind.Local).AddTicks(4628),
+                            CreatedDate = new DateTime(2022, 10, 10, 12, 29, 57, 657, DateTimeKind.Local).AddTicks(9593),
                             Name = "Kitap2",
                             Price = 140m,
                             Stock = 10
