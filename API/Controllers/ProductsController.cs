@@ -1,23 +1,27 @@
-﻿using AutoMapper;
+﻿using API.Filters;
+using AutoMapper;
 using CORE.DTOs;
 using CORE.Models;
 using CORE.Repositories;
 using CORE.Services;
+using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+    [ValidateFilterAttribute]
     public class ProductsController : CustomBaseController
     {
         private readonly IMapper _mapper;
-
+        private IValidator<ProductDto> _validator;
         private readonly IProductService _service;
 
-        public ProductsController( IMapper mapper, IProductService productService)
+        public ProductsController(IMapper mapper, IProductService productService, IValidator<ProductDto> validator)
         {
             _mapper = mapper;
             _service = productService;
+            _validator = validator;
         }
         [HttpGet("[action]")]
         public async Task<IActionResult> GetProductWithCategory()
@@ -33,7 +37,7 @@ namespace API.Controllers
             return CreateActionResult(CustomResponseDto<List<ProductDto>>.Success(200, productDtos));
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById (int id)
+        public async Task<IActionResult> GetById(int id)
         {
             var product = await _service.GetByIdAsync(id);
             var productDto = _mapper.Map<ProductDto>(product);
