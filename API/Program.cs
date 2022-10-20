@@ -1,3 +1,4 @@
+using API.Middlewares;
 using CORE.Repositories;
 using CORE.Services;
 using CORE.UnitOfWorks;
@@ -56,6 +57,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCustomException();
 
 app.UseAuthorization();
 
