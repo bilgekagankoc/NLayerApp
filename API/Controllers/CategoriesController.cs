@@ -15,7 +15,7 @@ namespace API.Controllers
         [HttpGet("[action]/{categoryId}")]
         public async Task<IActionResult> GetSignleCategoryByIdWithProductsAsync(int categoryId)
         {
-            return CreateActionResult(await _categoryService.GetSignleCategoryByIdWithProductsAsync(categoryId));
+            return CreateActionResult(await _categoryService.GetSignleCategoryByIdWithProductsAsync(categoryId)); 
         }
     }
 }
